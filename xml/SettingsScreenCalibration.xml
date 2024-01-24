@@ -70,40 +70,36 @@
             <texturefocus colordiffuse="$VAR[AccentColor]">views/calibrate/reset.png</texturefocus>
             <texturenofocus>views/calibrate/reset.png</texturenofocus>
 		</control>
-		<control type="label">
-			<description>window title</description>
-			<left>0</left>
-			<top>10</top>
-			<width>100%</width>
-			<align>center</align>
-			<label>$LOCALIZE[214]</label>
-			<font>Reg37</font>
+        <control type="group">
+            <top>view_pad</top>
+            <bottom>view_top</bottom>
+            <control type="label">
+                <description>window title</description>
+                <height>40</height>
+                <align>center</align>
+                <label>$LOCALIZE[214]</label>
+                <font>Reg37</font>
+            </control>
 		</control>
 		<control type="label" id="2">
 			<description>coordinates label</description>
-			<left>0</left>
-			<top>60</top>
-			<width>100%</width>
+			<top>40</top>
+			<height>40</height>
 			<align>center</align>
-			<label></label>
 			<font>Reg37</font>
 		</control>
 		<control type="label" id="3">
 			<description>help information</description>
-			<left>0</left>
-			<top>110</top>
-			<width>100%</width>
+			<top>120</top>
+			<height>40</height>
 			<align>center</align>
-			<label></label>
 			<font>Reg37</font>
 		</control>
 		<control type="label" id="4">
 			<description>calibration value</description>
-			<left>0</left>
-			<top>210</top>
-			<width>100%</width>
+			<bottom>0</bottom>
+			<height>40</height>
 			<align>center</align>
-			<label></label>
 			<font>Reg37</font>
 		</control>
 	</controls>
