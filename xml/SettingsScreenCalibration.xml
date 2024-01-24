@@ -39,6 +39,15 @@
 			<height>500</height>
 			<texturefocus colordiffuse="$VAR[AccentColor]">views/calibrate/cal_ratio.png</texturefocus>
 			<texturenofocus>views/calibrate/cal_ratio.png</texturenofocus>
+		<control type="mover" id="12">
+            <description>reset calibration</description>
+            <left>0</left>
+            <top>900</top>
+            <width>100</width>
+            <height>100</height>
+            <texturefocus colordiffuse="$VAR[AccentColor]">views/calibrate/reset.png</texturefocus>
+            <texturenofocus>views/calibrate/reset.png</texturenofocus>
+        </control>
 		</control>
 		<control type="label" id="2">
 			<description>coordinates label</description>
