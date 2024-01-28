@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">50</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<views>50,52,53,</views>
+	<menucontrol>6601</menucontrol>
+	<include content="PropertyIncludes">
+		<param name="ShowHeader" value="true"/>
+	</include>
+	<controls>
+		<control type="button" id="2">
+			<include>HiddenObject</include>
+		</control>
+		<include>Background</include>
+		<control type="group">
+			<include>Window_OpenClose</include>
+			<include>JumpToLetterVertical</include>
+			<include>Wide_View_50</include>
+			<include>Square_View_52</include>
+			<include>List_View_53</include>
+		</control>
+		<!-- scrollbar -->
+		<include>Scrollbar</include>
+		<!-- Menu control -->
+		<control type="group">
+			<visible>ControlGroup(4000).HasFocus</visible>
+			<include>FullscreenDimensions</include>
+			<include>Visible_PopupOpenClose</include>
+			<include content="DiffuseMask">
+				<param name="visible">true</param>
+			</include>
+			<control type="group">
+				<centerleft>50%</centerleft>
+				<width>500</width>
+				<centertop>50%</centertop>
+				<height>982</height>
+				<control type="grouplist" id="4000">
+					<orientation>vertical</orientation>
+					<height>auto</height>
+					<align>center</align>
+					<itemgap>0</itemgap>
+					<onright>50</onright>
+					<onleft>50</onleft>
+					<onback>50</onback>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="image" id="4001">
+						<width>100%</width>
+						<height>61</height>
+						<texture border="65,0,65,0" colordiffuse="context_color">dialogs/context/top.png</texture>
+					</control>
+					<control type="togglebutton" id="4">
+						<include content="ContextButton"/>
+						<label>$LOCALIZE[580]: $LOCALIZE[584]</label>
+						<altlabel>$LOCALIZE[580]: $LOCALIZE[585]</altlabel>
+						<visible>Control.IsEnabled(4)</visible>
+					</control>
+					<control type="button" id="3">
+						<include content="ContextButton"/>
+						<label>$LOCALIZE[581]</label>
+						<visible>Control.IsEnabled(3)</visible>
+					</control>
+					<control type="radiobutton" id="5">
+						<include content="ContextButton"/>
+						<label>$LOCALIZE[21340]</label>
+						<visible>Control.IsEnabled(5)</visible>
+					</control>
+					<control type="radiobutton" id="6">
+						<include content="ContextButton"/>
+						<label>$LOCALIZE[25000]</label>
+						<visible>Control.IsEnabled(6)</visible>
+					</control>
+					<control type="radiobutton" id="7">
+						<include content="ContextButton"/>
+						<label>$LOCALIZE[31133]</label>
+						<visible>Control.IsEnabled(7)</visible>
+					</control>
+					<control type="button" id="9">
+						<include content="ContextButton"/>
+						<label>$LOCALIZE[24034]</label>
+						<visible>Control.IsEnabled(9)</visible>
+					</control>
+					<control type="radiobutton" id="8">
+						<include content="ContextButton"/>
+						<label>$LOCALIZE[31128]</label>
+					</control>
+					<control type="image" id="4002">
+						<width>100%</width>
+						<height>61</height>
+						<texture border="65,0,65,0" colordiffuse="context_color">dialogs/context/bottom.png</texture>
+					</control>
+				</control>
+			</control>
+		</control>
+		<!-- View select -->
+		<include>ViewSelector</include>
+		<!-- Download -->
+		<control type="group">
+			<visible>String.EndsWith(ListItem.Label2,&#x25;)</visible>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="0,200" end="0,0" delay="100" tween="circle" easin="out" time="400" />
+				<effect type="fade" delay="160" end="100" time="400" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="slide" start="0,0" end="0,200" easing="in" tween="circle" easin="out" time="400" />
+				<effect type="fade" start="100" end="0" time="400" />
+			</animation>
+			<width>550</width>
+			<height>240</height>
+			<left>30</left>
+			<bottom>30</bottom>
+			<!-- Background image -->
+			<control type="image">
+				<texture colordiffuse="context_color" border="65">dialogs/notification/bg.png</texture>
+			</control>
+			<!-- icon -->
+			<control type="group">
+				<centertop>50%</centertop>
+				<left>65</left>
+				<width>80</width>
+				<height>80</height>
+				<!-- Icon back -->
+				<control type="image">
+					<texture>dialogs/progress/bg.png</texture>
+				</control>
+				<control type="image">
+					<texture>dialogs/progress/100.png</texture>
+					<colordiffuse>30ffffff</colordiffuse>
+				</control>
+				<!-- Icon -->
+				<control type="textbox">
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Material24</font>
+					<textcolor>text_white</textcolor>
+					<label>&#xf1da;</label>
+				</control>
+			</control>
+			<!-- Details -->
+			<control type="textbox">
+				<top>80</top>
+				<left>160</left>
+				<right>80</right>
+				<bottom>80</bottom>
+				<font>Reg22</font>
+				<aligny>center</aligny>
+				<textcolor>context_textcolor</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</control>
+		<!-- local favs -->
+			<include content="SquareWidget">
+				<param name="id" value="450"/>
+				<param name="onup" value="noop"/>
+				<param name="ondown" value="202"/>
+				<param name="height" value="476"/>
+				<param name="layout" value="SquareFavourites"/>
+				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
+				<param name="headline" value="$LOCALIZE[31063]"/>
+				<param name="use_custom_content" value="false"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="id" value="202"/>
+				<param name="onup" value="450"/>
+				<param name="ondown" value="203"/>
+				<param name="headline" value="$LOCALIZE[31407]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=playitem,item='$ESCINFO[ListItem.Filenameandpath]')"/>
+				<param name="content" value="videodb://movies/titles/?xsp=%7b%22group%22%3a%7b%22mixed%22%3afalse%2c%22type%22%3a%22none%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22tag%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22Watchlist%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d&amp;reload=$INFO[System.Time(mm)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="id" value="203"/>
+				<param name="onup" value="202"/>
+				<param name="ondown" value="204"/>
+				<param name="headline" value="$LOCALIZE[31408]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=goto,path='$ESCINFO[ListItem.FolderPath]',target=videos)"/>
+				<param name="content" value="videodb://tvshows/titles/?xsp=%7b%22group%22%3a%7b%22mixed%22%3afalse%2c%22type%22%3a%22none%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22tag%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22Watchlist%22%5d%7d%5d%7d%2c%22type%22%3a%22tvshows%22%7d&amp;reload=$INFO[System.Time(mm)]"/>
+			</include>
+			<!-- emby movies -->
+			<include content="PosterWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.emby)"/>
+				<param name="id" value="204"/>
+				<param name="onup" value="203"/>
+				<param name="ondown" value="205"/>
+				<param name="headline" value="$LOCALIZE[31062] [COLOR text_sublabel](Emby)[/COLOR]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=playitem,item='$ESCINFO[ListItem.Filenameandpath]')"/>
+				<param name="content" value="videodb://movies/titles/?xsp=%7b%22group%22%3a%7b%22mixed%22%3afalse%2c%22type%22%3a%22none%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22tag%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22Favorite%20movies%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d&amp;reload=$INFO[System.Time(mm)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
+				<param name="id" value="205"/>
+				<param name="onup" value="204"/>
+				<param name="ondown" value="206"/>
+				<param name="headline" value="$LOCALIZE[31062]$VAR[EmbyConLabel]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="sortby" value="label"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=playitem,item='$ESCINFO[ListItem.Filenameandpath]')"/>
+				<param name="content" value="$VAR[EmbyCon.FavMovies]"/>
+			</include>
+			<!-- emby shows -->
+			<include content="PosterWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.emby)"/>
+				<param name="id" value="206"/>
+				<param name="onup" value="205"/>
+				<param name="ondown" value="207"/>
+				<param name="headline" value="$LOCALIZE[31064] [COLOR text_sublabel](Emby)[/COLOR]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=goto,path='$ESCINFO[ListItem.FolderPath]',target=videos)"/>
+				<param name="content" value="videodb://tvshows/titles/?xsp=%7b%22group%22%3a%7b%22mixed%22%3afalse%2c%22type%22%3a%22none%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22tag%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22Favorite%20tvshows%22%5d%7d%5d%7d%2c%22type%22%3a%22tvshows%22%7d&amp;reload=$INFO[System.Time(mm)]"/>
+			</include>
+			<include content="PosterWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
+				<param name="id" value="207"/>
+				<param name="onup" value="206"/>
+				<param name="ondown" value="208"/>
+				<param name="headline" value="$LOCALIZE[31064]$VAR[EmbyConLabel]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="sortby" value="label"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=goto,path='$ESCINFO[ListItem.Filenameandpath]',target=videos)"/>
+				<param name="content" value="$VAR[EmbyCon.FavTVShows]"/>
+			</include>
+			<!-- emby episodes -->
+			<include content="WideWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.emby)"/>
+				<param name="id" value="208"/>
+				<param name="onup" value="207"/>
+				<param name="ondown" value="209"/>
+				<param name="headline" value="$LOCALIZE[31065] [COLOR text_sublabel](Emby)[/COLOR]"/>
+				<param name="sublabel" value="$INFO[ListItem.TvShowTitle]"/>
+				<param name="mainlabel" value="$VAR[ListItemSeasonEpisode]$INFO[ListItem.Title]"/>
+				<param name="icon" value="$VAR[IconEpisodeThumb]"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=playitem,item='$ESCINFO[ListItem.Filenameandpath]')"/>
+				<param name="content" value="$VAR[Emby.FavEpisodes]"/>
+			</include>
+			<include content="WideWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
+				<param name="id" value="209"/>
+				<param name="onup" value="208"/>
+				<param name="ondown" value="210"/>
+				<param name="headline" value="$LOCALIZE[31065]$VAR[EmbyConLabel]"/>
+				<param name="sublabel" value="$INFO[ListItem.TvShowTitle]"/>
+				<param name="mainlabel" value="$VAR[ListItemSeasonEpisode]$INFO[ListItem.Title]"/>
+				<param name="icon" value="$VAR[IconEpisodeThumb]"/>
+				<param name="sortby" value="label"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=playitem,item='$ESCINFO[ListItem.Filenameandpath]')"/>
+				<param name="content" value="$VAR[EmbyCon.FavEpisodes]"/>
+			</include>
+			<!-- Fav artist -->
+			<include content="SquareWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
+				<param name="id" value="210"/>
+				<param name="onup" value="209"/>
+				<param name="ondown" value="211"/>
+				<param name="headline" value="$LOCALIZE[31212]$VAR[EmbyConLabel]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Year]"/>
+				<param name="sortby" value="label"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=goto,path='$ESCINFO[ListItem.Filenameandpath]',target=music)"/>
+				<param name="widget_target" value="music"/>
+				<param name="content" value="$VAR[EmbyCon.FavArtists]"/>
+			</include>
+			<!-- fav album -->
+			<include content="SquareWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
+				<param name="id" value="211"/>
+				<param name="onup" value="210"/>
+				<param name="ondown" value="212"/>
+				<param name="headline" value="$LOCALIZE[31213]$VAR[EmbyConLabel]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Artist]"/>
+				<param name="sortby" value="label"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=goto,path='$ESCINFO[ListItem.Filenameandpath]',target=music)"/>
+				<param name="widget_target" value="music"/>
+				<param name="content" value="$VAR[EmbyCon.FavAlbums]"/>
+			</include>
+			<!-- fav song -->
+			<include content="SquareWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
+				<param name="id" value="212"/>
+				<param name="onup" value="211"/>
+				<param name="ondown" value="213"/>
+				<param name="headline" value="$LOCALIZE[31214]$VAR[EmbyConLabel]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Title]"/>
+				<param name="sublabel" value="$INFO[ListItem.Artist]"/>
+				<param name="sortby" value="label"/>
+				<param name="use_custom_onclick" value="true"/>
+				<param name="onclick" value="RunScript(script.embuary.helper,action=playitem,item='$ESCINFO[ListItem.Filenameandpath]')"/>
+				<param name="widget_target" value="music"/>
+				<param name="content" value="$VAR[EmbyCon.FavSongs]"/>
+			</include>
+			<!-- fav person -->
+			<include content="CastWidget">
+				<param name="visible" value="System.HasAddon(plugin.video.embycon)"/>
+				<param name="id" value="213"/>
+				<param name="onup" value="212"/>
+				<param name="ondown" value="noop"/>
+				<param name="height" value="551"/>
+				<param name="headline" value="$LOCALIZE[31212]$VAR[EmbyConLabel]"/>
+				<param name="mainlabel" value="$INFO[ListItem.Label]"/>
+				<param name="sublabel" value=""/>
+				<param name="force_search" value="true"/>
+				<param name="content" value="$VAR[EmbyCon.FavPerson]"/>
+			</include>
+
+
+		<!-- header bar -->
+		<include content="HeaderBar">
+			<param name="id">50</param>
+			<param name="auto_hide">false</param>
+			<param name="hide_header">$EXP[HideHeaderBasedOnContainer]</param>
+		</include>
+		<!-- side panel -->
+		<include content="SidePanel">
+			<param name="onright">50</param>
+		</include>
+	</controls>
+</window>

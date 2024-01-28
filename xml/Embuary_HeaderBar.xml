@@ -148,7 +148,7 @@
 							]
 							+ !Window.IsVisible(1114)
 							+ !Skin.HasSetting(KioskMode)
-							+ !Window.IsVisible(favourites)
+							+ !Window.IsVisible(favouritesbrowser)
 						</visible>
 					</control>
 					<control type="button" id="6670">
@@ -285,7 +285,7 @@
 					| Window.IsVisible(1132)
 					| Window.IsVisible(MyPVRGuide.xml)
 					| Window.IsVisible(settings)
-					| Window.IsVisible(favourites)
+					| Window.IsVisible(favouritesbrowser)
 					]
 					+ Player.HasMedia
 					+ !Player.HasGame
@@ -422,7 +422,7 @@
 				| [Window.IsVisible(1114) + String.Contains(Window(home).Property(ListGenres),videodb://movies/)]
 				]
 				+ Library.HasContent(Movies)
-				+ !Window.IsVisible(favourites)
+				+ !Window.IsVisible(favouritesbrowser)
 				+ !$EXP[IsPlugin]
 			</visible>
 		</control>
@@ -437,7 +437,7 @@
 				| Window.IsVisible(1132)
 				]
 				+ Library.HasContent(tvshows)
-				+ !Window.IsVisible(favourites)
+				+ !Window.IsVisible(favouritesbrowser)
 				+ !$EXP[IsPlugin]
 			</visible>
 		</control>
@@ -458,7 +458,7 @@
 				| Window.IsVisible(1132)
 				]
 				+ Library.HasContent(Movies)
-				+ !Window.IsVisible(favourites)
+				+ !Window.IsVisible(favouritesbrowser)
 				+ !$EXP[IsPlugin]
 			</visible>
 		</control>
@@ -473,7 +473,7 @@
 				| [Window.IsVisible(1114) + String.Contains(Window(home).Property(ListGenres),videodb://movies/)]
 				]
 				+ Library.HasContent(MovieSets)
-				+ !Window.IsVisible(favourites)
+				+ !Window.IsVisible(favouritesbrowser)
 				+ !$EXP[IsPlugin]
 			</visible>
 		</control>
@@ -492,7 +492,7 @@
 				| [Window.IsVisible(1114) + String.Contains(Window(home).Property(ListGenres),videodb://tvshows/)]
 				| Window.IsVisible(1132)
 				]
-				+ !Window.IsVisible(favourites)
+				+ !Window.IsVisible(favouritesbrowser)
 				+ !$EXP[IsPlugin]
 			</visible>
 		</control>
@@ -562,8 +562,8 @@
 		<control type="button" id="6601">
 			<include>HeaderButton</include>
 			<label>$LOCALIZE[1036]</label>
-			<onclick>ActivateWindow(favourites)</onclick>
-			<visible>!Window.Is(favourites)</visible>
+			<onclick>ActivateWindow(favouritesbrowser)</onclick>
+			<visible>!Window.Is(favouritesbrowser)</visible>
 		</control>
 		<control type="button" id="6606">
 			<include>HeaderButton</include>
